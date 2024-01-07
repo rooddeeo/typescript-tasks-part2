@@ -20,7 +20,6 @@ abstract class House {
 	tenants: Person[] = [];
 	comeIn(person: Person): void {
 		if (this.door) {
-			const tenants = [];
 			this.tenants.push(person);
 		}
 	}
@@ -29,7 +28,7 @@ abstract class House {
 
 class MyHouse extends House {
 	OpenDoor(key: Key): void {
-		if (key === person.getKey()) {
+		if (key.getSignature() === person.getKey().getSignature()) {
 			this.door = true;
 		}
 	}
